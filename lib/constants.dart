@@ -1,0 +1,1 @@
+const CategoryMealsScreen = "/categories-meals";
