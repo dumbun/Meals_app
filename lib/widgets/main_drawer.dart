@@ -23,37 +23,39 @@ class MainDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Drawer(
-      child: Column(
-        children: [
-          Container(
-            height: 120.0,
-            width: double.infinity,
-            alignment: Alignment.centerLeft,
-            color: Theme.of(context).accentColor,
-            child: Center(
-              child: Text(
-                'Cooking UP!',
-                style: TextStyle(
-                  fontWeight: FontWeight.w900,
-                  fontSize: 30,
-                  color: Colors.white,
+    return SafeArea(
+      child: Drawer(
+        child: Column(
+          children: [
+            Container(
+              height: 120.0,
+              width: double.infinity,
+              alignment: Alignment.centerLeft,
+              color: Theme.of(context).accentColor,
+              child: Center(
+                child: Text(
+                  'Cooking UP!',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w900,
+                    fontSize: 30,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),
-          ),
-          SizedBox(height: 20),
-          buildListTile(
-            title: 'Meals',
-            icon: Icons.restaurant,
-            onTap: () => Navigator.of(context).pushNamed('/'),
-          ),
-          buildListTile(
-            title: 'Filters',
-            icon: Icons.settings,
-            onTap: () => Navigator.of(context).pushNamed(fileterScreen),
-          ),
-        ],
+            SizedBox(height: 20),
+            buildListTile(
+              title: 'Meals',
+              icon: Icons.restaurant,
+              onTap: () => Navigator.of(context).pushNamed('/'),
+            ),
+            buildListTile(
+              title: 'Filters',
+              icon: Icons.settings,
+              onTap: () => Navigator.of(context).pushNamed(fileterScreen),
+            ),
+          ],
+        ),
       ),
     );
   }
