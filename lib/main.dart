@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_complete_guide/screens/categories_screen.dart';
-import 'package:flutter_complete_guide/screens/category_meals_screen.dart';
+import 'package:flutter_complete_guide/screens/filter_screen.dart';
+import './screens/categories_screen.dart';
+import './screens/category_meals_screen.dart';
+import './screens/meal_detail_screen.dart';
 import 'constants.dart';
+import 'screens/tabs_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -10,7 +13,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        CategoryMealsScreen: (context) => CategoriesMealsScreen(),
+        categoryMealsScreen: (context) => CategoriesMealsScreen(),
+        mealDetailScreen: (context) => MealDetailScreen(),
+        fileterScreen: (context) => FilterScreen(),
+      },
+      onUnknownRoute: (settings) {
+        return MaterialPageRoute(
+          builder: ((context) => CategoriesScreen()),
+        );
       },
       debugShowCheckedModeBanner: false,
       title: 'DeliMeals',
@@ -22,20 +32,21 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Raleway',
         textTheme: ThemeData.light().textTheme.copyWith(
               titleLarge: TextStyle(
-                  fontSize: 20,
-                  fontFamily: 'RobotoCondensed',
-                  fontWeight: FontWeight.bold),
+                fontSize: 20,
+                fontFamily: 'RobotoCondensed',
+                fontWeight: FontWeight.bold,
+              ),
               titleMedium:
                   TextStyle(fontSize: 24, fontFamily: 'RobotoCondensed'),
               bodyMedium: TextStyle(
                 color: Color.fromRGBO(20, 51, 51, 1),
               ),
               bodyLarge: TextStyle(
-                color: Color.fromRGBO(20, 51, 51, 1),
+                color: Color.fromRGBO(29, 83, 83, 1),
               ),
             ),
       ),
-      home: CategoriesScreen(),
+      home: TabsScreen(),
     );
   }
 }

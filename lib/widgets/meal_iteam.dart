@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_complete_guide/constants.dart';
 import 'package:flutter_complete_guide/models/meals.dart';
 import 'package:blur/blur.dart';
 
 class MealItem extends StatelessWidget {
+  final String id;
   final title;
   final imageUrl;
   final duration;
@@ -10,6 +12,7 @@ class MealItem extends StatelessWidget {
   final Affordability affordability;
 
   const MealItem({
+    @required this.id,
     @required this.title,
     @required this.imageUrl,
     @required this.duration,
@@ -51,20 +54,25 @@ class MealItem extends StatelessWidget {
     }
   }
 
-  void selectMeal() {}
+  void selectMeal(BuildContext context) {
+    Navigator.of(context).pushNamed(
+      mealDetailScreen,
+      arguments: id,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        selectMeal();
+        selectMeal(context);
       },
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15.0),
         ),
         elevation: 4.0,
-        margin: EdgeInsets.all(10.0),
+        margin: const EdgeInsets.all(10.0),
         child: Column(
           children: [
             Stack(
@@ -88,15 +96,15 @@ class MealItem extends StatelessWidget {
                     title,
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 20.0,
+                      fontSize: 15.0,
                       color: Colors.black,
                     ),
                     softWrap: true,
                     overflow: TextOverflow.fade,
                   ).frosted(
-                    blur: 15,
+                    blur: 35,
                     borderRadius: BorderRadius.circular(20),
-                    padding: EdgeInsets.all(8),
+                    padding: const EdgeInsets.all(8),
                   ),
                 ),
               ],

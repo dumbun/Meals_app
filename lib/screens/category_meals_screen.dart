@@ -22,17 +22,20 @@ class CategoriesMealsScreen extends StatelessWidget {
         appBar: AppBar(
           title: Text(categoryTitle),
         ),
-        body: ListView.builder(
-          itemBuilder: (context, index) {
-            return MealItem(
-              title: CategoryMeals[index].title,
-              imageUrl: CategoryMeals[index].imageUrl,
-              duration: CategoryMeals[index].duration,
-              complexity: CategoryMeals[index].complexity,
-              affordability: CategoryMeals[index].affordability,
-            );
-          },
-          itemCount: CategoryMeals.length,
+        body: SafeArea(
+          child: ListView.builder(
+            itemBuilder: (context, index) {
+              return MealItem(
+                id: CategoryMeals[index].id,
+                title: CategoryMeals[index].title,
+                imageUrl: CategoryMeals[index].imageUrl,
+                duration: CategoryMeals[index].duration,
+                complexity: CategoryMeals[index].complexity,
+                affordability: CategoryMeals[index].affordability,
+              );
+            },
+            itemCount: CategoryMeals.length,
+          ),
         ));
   }
 }
