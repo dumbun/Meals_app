@@ -2,6 +2,10 @@
 
 A new Flutter project.
 
+# Day-3 : add the Default tab controller and Drawer
+
+https://user-images.githubusercontent.com/113350510/231705127-1bc0280f-6b62-4fa5-8f6a-70655dec70db.mov
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
